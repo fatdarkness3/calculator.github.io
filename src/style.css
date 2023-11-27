@@ -1,4 +1,39 @@
 button {
     font-size: 20px;
     padding: 20px;
+    cursor: pointer;
+    transition: all 0.8s;
+}
+button:hover {
+    background-color: yellow;
+}
+button:active{
+    background-color: rgb(0, 247, 255);
+    transition: all 0.1s;
+    
+}
+.wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.calculates button:nth-child(5) {
+    width: 100%;
+}
+.calculates button {
+    width: 55px;
+}
+.number button {
+    border-radius: 10px;
+}
+.flex {
+    display: flex;
+    
+    align-items: center;
+}
+.part1 {
+    align-items:center;
+            justify-content:center;
+            display:flex;
+            flex-direction: row;
+            gap:10px;
 }

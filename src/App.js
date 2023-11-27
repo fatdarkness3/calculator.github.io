@@ -1,6 +1,12 @@
+import { useState } from "react"
 import "./style.css"
 
 export function App() {
+    const [show , setShow] = useState("")
+    const [cal , setCal] = useState("")
+    const [show2 , setShow2] = useState("")
+    const [showResult , setShowResult] = useState("")
+
 
     return(
         <>
@@ -17,47 +23,179 @@ export function App() {
             left:"50%",
 
          }}>
+            <div className="wrapper">
          <div className="background" 
          style={{
-            backgroundColor:"gray",
+            backgroundColor:"black",
             padding:"100px",
             borderRadius:"10px"
          }}>
-            <div className="part1" 
+            <div className="flex">
+          <div className="part1">
+                <div
+                style={{
+                    width:"100%",
+                    padding:"10px 10px",
+                    color:"#fff",
+                    fontSize:"30px",
+                }}>{show}</div>
+                <div className="cal" 
+                style={{
+                    color:"#fff",
+                    fontSize:"30px",
+                }}>{cal}</div>
+                <div 
+                style={{
+                    width:"100%",
+                    padding:"10px 10px",
+                    color: "#fff",
+                    fontSize:"30px",
+                }}>{show2}</div>
+          </div>
+            <div className="showResult" 
             style={{
-                alignItems:"center",
-            justifyContent:"center",
-            display:"flex"
+                width:"100%",
+                padding:"10px 10px",
+                color:"#fff",
+                fontSize:"50px"
             }}>
-                <input/>
+                   {showResult}
+            </div>
             </div>
             <div className="part2" 
             style={{
                 display:"flex",
-                gap:"20px"
+                gap:"20px",
+                paddingTop:"50px"
             }}>
                 <div className="number" 
                 style={{
                     display:"flex",
-                    flexWrap:"wrap"
+                    flexWrap:"wrap",
+                    gap:"10px"
                 }}>
-                    <button>0</button>
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
+                    <button onClick={() => {
+                            
+                            if(cal) {
+                                setShow2(show2 +9)
+                            }else {
+                                setShow(show +9)
+                            }
+                        
+                    }}>9</button>
+                    <button onClick={() => {
+                        
+                        if(cal) {
+                        
+                            setShow2(show2 +8)
+                        }else {
+                            setShow(show +8)
+                        }
+                        
+                    }}>8</button>
+                    <button onClick={() => {
+                        
+                        if(cal) {
+                            setShow2(show2 +7)
+                        }else {
+                            setShow(show +7)
+                        }
+                    }}>7</button>
+                    <button onClick={() => {
+                        
+                        if(cal) {
+                            setShow2(show2 +6)
+                        }else {
+                            setShow(show +6)
+                        }
+                    }}>6</button>
+                    <button onClick={() => {
+                        
+                        if(cal) {
+                            setShow2(show2 +5)
+                        }else {
+                            setShow(show +5)
+                        }
+                    }}>5</button>
+                    <button onClick={() => {
+                        
+                        if(cal) {
+                            setShow2(show2 +4)
+                        }else {
+                            setShow(show +4) 
+                        }
+                    }}>4</button>
+                    <button onClick={() => {
+                        
+                        if(cal) {
+                            setShow2(show2 + 3)
+                        }else {
+                            setShow(show +3)
+                        }
+                    }}>3</button>
+                    <button onClick={() => {
+                        
+                        if(cal) {
+                            setShow2(show2 +2)
+                        }else {
+                            setShow(show +2)
+                        }
+                    }}>2</button>
+                    <button onClick={() => {
+                        
+                        if(cal) {
+                            setShow2(show2 +1)
+                        }else {
+                            setShow(show +1)
+                        }
+                    }}>1</button>
+                    <button onClick={() => {
+                        
+                        if(cal) {
+
+                            setShow2(show2 + 0)
+                        }else {
+                            setShow(show +0)
+                        }
+                    }}>0</button>
+                    <button onClick={() => {
+                        setShow("")
+                        setShow2("")
+                        setCal("")
+                        setShowResult("")
+                    }}>reset</button>
                 </div>
                 <div className="calculates">
-                    <button>+</button>
-                    <button>-</button>
-                    <button>/</button>
-                    <button>+</button>
+                    <button onClick={() => {
+                        setCal("+")
+                        
+                    }}>+</button>
+                    <button onClick={() => {
+                        setCal("-")
+                    }}>-</button>
+                    <button onClick={() => {
+                        setCal("/")
+                    }}>/</button>
+                    <button onClick={() => {
+                        setCal("*")
+                    }}>*</button>
+                    <button onClick={() => {
+                        if(cal == "+") {
+                            setShowResult( parseInt(show) + parseInt(show2)  )
+                            
+                        }else if (cal == "-") {
+                            setShowResult(parseInt(show) - parseInt(show2)  )
+                        }else if (cal == "*") {
+                            setShowResult(parseInt(show) * parseInt(show2) )
+                        }else if (cal == "/") {
+                            setShowResult(parseInt(show) / parseInt(show2))
+                        }
+                        setShow("")
+                        setShow2("")
+                        setCal("")
+                    }}>Enter</button>
                 </div>
+            </div>
             </div>
             </div>
          </div>
