@@ -25,15 +25,15 @@ button:active{
 .number button {
     border-radius: 10px;
 }
-.flex {
+/* .flex {
     display: flex;
     
     align-items: center;
-}
-.part1 {
+} */
+/* .part1 {
     align-items:center;
             justify-content:center;
             display:flex;
             flex-direction: row;
             gap:10px;
-}
+} */
