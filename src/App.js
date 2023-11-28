@@ -3,9 +3,9 @@ import "./style.css"
 
 export function App() {
     const [show , setShow] = useState("")
-    const [cal , setCal] = useState("")
+    // const [cal , setCal] = useState("")
     const [showResult , setShowResult] = useState("")
-
+    const [typing , setTyping] = useState("")
 
     return(
         <>
@@ -31,13 +31,20 @@ export function App() {
          }}>
             <div className="flex">
           <div className="part1">
-                <div
+                <input
+                onChange={(e) => {
+                    let a = e.target.value
+                    setTyping(a)
+                    
+                }}
+                value={show || typing}
                 style={{
                     width:"100%",
                     padding:"10px 10px",
                     color:"#fff",
                     fontSize:"30px",
-                }}>{show}{cal}</div>
+                    background:"#000"
+                }}/>
                 <div className="cal" 
                 style={{
                     color:"#fff",
@@ -128,7 +135,7 @@ export function App() {
                     }}>0</button>
                     <button onClick={() => {
                         setShow("")
-                        setCal("")
+                        setTyping("")
                         setShowResult("")
                     }}>reset</button>
                 </div>
@@ -147,7 +154,7 @@ export function App() {
                         setShow(show +"*")
                     }}>×</button>
                     <button onClick={() => {
-                        setShow(eval(show))
+                        setShow(eval(show || typing))
                     }}>Enter</button>
                 </div>
             </div>
