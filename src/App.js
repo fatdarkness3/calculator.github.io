@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./style.css"
 
 export function App() {
     const [show , setShow] = useState("")
-    // const [cal , setCal] = useState("")
     const [showResult , setShowResult] = useState("")
-    const [typing , setTyping] = useState("")
+    
+    // const [typing , setTyping] = useState("")
 
     return(
         <>
@@ -32,12 +32,8 @@ export function App() {
             <div className="flex">
           <div className="part1">
                 <input
-                onChange={(e) => {
-                    let a = e.target.value
-                    setTyping(a)
-                    
-                }}
-                value={show || typing}
+                
+                value={show}
                 style={{
                     width:"100%",
                     padding:"10px 10px",
@@ -65,7 +61,8 @@ export function App() {
                 color:"#fff",
                 fontSize:"50px"
             }}>
-                   {showResult}
+                {showResult}
+                    
             </div>
             </div>
             <div className="part2" 
@@ -83,32 +80,32 @@ export function App() {
                     <button onClick={() => {
                             
                                     
-                                    setShow(show +9 + "")
+                                    setShow(show +9)
 
                         
                     }}>9</button>
                     <button onClick={() => {
                         
                         
-                            setShow(show +8 + "")
+                            setShow(show +8)
                         
                     }}>8</button>
                     <button onClick={() => {
                         
-                            setShow(show +7 + "")
+                            setShow(show +7)
                     }}>7</button>
                     <button onClick={() => {
                         
-                            setShow(show +6 + "")
+                            setShow(show +6)
                     }}>6</button>
                     <button onClick={() => {
                         
-                            setShow(show +5 + "")
+                            setShow(show +5)
                     }}>5</button>
                     <button onClick={() => {
                         
                         
-                            setShow(show +4 + "") 
+                            setShow(show +4) 
                         
                     }}>4</button>
                     <button onClick={() => {
@@ -116,26 +113,30 @@ export function App() {
                         
                             
                         
-                            setShow(show +3 + "")
+                            setShow(show +3)
 
                     }}>3</button>
                     <button onClick={() => {
                         
                         
-                            setShow(show +2 + "")
+                            setShow(show +2)
                         
                     }}>2</button>
                     <button onClick={() => {
                         
-                            setShow(show +1 + "")
+                            setShow(show +1)
                     }}>1</button>
                     <button onClick={() => {
                         
-                            setShow(show +0 + "")
+                            setShow(show +0)
                     }}>0</button>
                     <button onClick={() => {
+                        setShow(show +".")
+                    }}>.</button>
+
+                    <button onClick={() => {
                         setShow("")
-                        setTyping("")
+                        
                         setShowResult("")
                     }}>reset</button>
                 </div>
@@ -154,7 +155,7 @@ export function App() {
                         setShow(show +"*")
                     }}>×</button>
                     <button onClick={() => {
-                        setShow(eval(show || typing))
+                        setShowResult(eval(show))
                     }}>Enter</button>
                 </div>
             </div>
