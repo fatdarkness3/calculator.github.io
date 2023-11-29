@@ -4,7 +4,7 @@ import "./style.css"
 export function App() {
     const [show , setShow] = useState("")
     const [showResult , setShowResult] = useState("")
-    
+    const [error , setError] = useState(false)
     // const [typing , setTyping] = useState("")
 
     return(
@@ -31,16 +31,14 @@ export function App() {
          }}>
             <div className="flex">
           <div className="part1">
-                <input
-                
-                value={show}
+                <div
                 style={{
                     width:"100%",
                     padding:"10px 10px",
                     color:"#fff",
                     fontSize:"30px",
                     background:"#000"
-                }}/>
+                }}>{show} {(error ==true ? <h1>Error</h1> : null)}</div>
                 <div className="cal" 
                 style={{
                     color:"#fff",
@@ -136,7 +134,7 @@ export function App() {
 
                     <button onClick={() => {
                         setShow("")
-                        
+                        setError("")
                         setShowResult("")
                     }}>reset</button>
                 </div>
@@ -155,13 +153,22 @@ export function App() {
                         setShow(show +"*")
                     }}>×</button>
                     <button onClick={() => {
-                        setShowResult(eval(show))
+                        try{
+                            setShowResult(eval(show))
+                        }catch {
+
+                            
+                            setShow("")
+                            setError(true)
+                        }
+                        
                     }}>Enter</button>
                 </div>
             </div>
             </div>
             </div>
          </div>
+         
 
         </>
     )
