@@ -10,7 +10,7 @@ export function App() {
     return(
         <>
 
-         <div className="header" 
+         <div  className="header" 
          style={{
             display:"flex",
             flexDirection:"column",
@@ -44,13 +44,6 @@ export function App() {
                     color:"#fff",
                     fontSize:"30px",
                 }}></div>
-                {/* <div 
-                style={{
-                    width:"100%",
-                    padding:"10px 10px",
-                    color: "#fff",
-                    fontSize:"30px",
-                }}>{show2}</div> */}
           </div>
             <div className="showResult" 
             style={{
@@ -152,8 +145,10 @@ export function App() {
                     <button onClick={() => {
                         setShow(show +"*")
                     }}>×</button>
-                    <button onClick={() => {
+                    <button  onClick={(e) => {
+                        
                         try{
+                            
                             setShowResult(eval(show))
                         }catch {
 
