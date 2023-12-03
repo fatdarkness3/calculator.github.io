@@ -5,48 +5,50 @@ export function App() {
     const [showResult , setShowResult] = useState("")
     const [error , setError] = useState(false)
     // const [typing , setTyping] = useState("")
+    useEffect(() => {
+        window.addEventListener("keydown" , (e) => {
+            console.log(e.key);
+            const button = document.querySelector("#click")
+            const b9 = document.querySelector(".b9")
+            const b8 = document.querySelector(".b8")
+            const b7 = document.querySelector(".b7")
+            const b6 = document.querySelector(".b6")
+            const b5 = document.querySelector(".b5")
+            const b4 = document.querySelector(".b4")
+            const b3 = document.querySelector(".b3")
+            const b2 = document.querySelector(".b2")
+            const b1 = document.querySelector(".b1")
+            const b0 = document.querySelector(".b0")
     
-    window.addEventListener("keydown" , (e) => {
-        
-        const button = document.querySelector("#click")
-        const b9 = document.querySelector(".b9")
-        const b8 = document.querySelector(".b8")
-        const b7 = document.querySelector(".b7")
-        const b6 = document.querySelector(".b6")
-        const b5 = document.querySelector(".b5")
-        const b4 = document.querySelector(".b4")
-        const b3 = document.querySelector(".b3")
-        const b2 = document.querySelector(".b2")
-        const b1 = document.querySelector(".b1")
-        const b0 = document.querySelector(".b0")
-
-        let a = e.key
-        if(a == "Enter") {
-            
-            button.click()
-        }else if(a == "9") {
-            
-            b9.click()
-        }else if(a == "8") {
-            b8.click()
-        }else if(a == "7") {
-            b7.click()
-        }else if(a == "6") {
-            b6.click()
-        }else if(a == "5") {
-            b5.click()
-        }else if(a == "4") {
-            b4.click()
-        }else if(a == "3") {
-            b3.click()
-        }else if(a == "2") {
-            b2.click()
-        }else if(a == "1") {
-            b1.click()
-        }else if(a == "0") {
-            b0.click()
-        }
-    } , false)
+            let a = e.key
+            if(a == "Enter") {
+                
+                button.click()
+            }else if(a == "9") {
+                
+                b9.click()
+            }else if(a == "8") {
+                b8.click()
+            }else if(a == "7") {
+                b7.click()
+            }else if(a == "6") {
+                b6.click()
+            }else if(a == "5") {
+                b5.click()
+            }else if(a == "4") {
+                b4.click()
+            }else if(a == "3") {
+                b3.click()
+            }else if(a == "2") {
+                b2.click()
+            }else if(a == "1") {
+                b1.click()
+            }else if(a == "0") {
+                b0.click()
+            }
+        } , false)
+    } , [])
+    
     return(
         <>
 
@@ -169,7 +171,7 @@ export function App() {
                         setShow("")
                         setError("")
                         setShowResult("")
-                    }}>reset</button>
+                    }}>c</button>
                 </div>
                 <div className="calculates">
                     <button onClick={() => {
@@ -185,7 +187,7 @@ export function App() {
                     <button onClick={() => {
                         setShow(show +"*")
                     }}>×</button>
-                    <button id="click" onClick={(e) => {
+                    <button id="click" onClick={() => {
                         
                         try{
                             
